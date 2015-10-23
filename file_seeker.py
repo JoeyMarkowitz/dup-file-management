@@ -1,3 +1,9 @@
+# Created: 2015.10.23
+"""
+1) hash all files indir and write hash and full path to db
+2) query duplicate files and display all found with each line numbered.  select number of file to keep, rest move to a recycle folder or write full path rm to execute later after review
+"""
+
 import os
 import sys
 import hashlib
@@ -5,7 +11,7 @@ import hashlib
 print(sys.version)
 print ""
 
-
+"""hash file"""
 def hashfile(path, blocksize = 65536):
     afile = open(path, 'rb')
     hasher = hashlib.md5()
@@ -17,7 +23,7 @@ def hashfile(path, blocksize = 65536):
     return hasher.hexdigest()
 
 
-
+"""hash all files in dir"""
 def hashdir(parentFolder):
     # Dups in format {hash:[names]}
     dups = {}
@@ -40,6 +46,9 @@ def hashdir(parentFolder):
 
 
 
+
+
+"""test"""
 def testoswaslk():
 	# Set the directory you want to start from
 	rootDir = '.'
